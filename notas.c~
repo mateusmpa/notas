@@ -38,7 +38,7 @@ int main(void)
 			printf("Média: %f\n", media_obtida);
 			printf("Status: %s\n", status);
 			printf("--------------------------------------\n");	
-			fprintf(avaliacao, "%s %s,%.1f,%s\n", nome, sobrenome, media_obtida);
+			fprintf(avaliacao, "%s %s,%.1f,%s\n", nome, sobrenome, media_obtida, status);
 		}
 		fclose(alunos);
 		fclose(avaliacao);

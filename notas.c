@@ -27,7 +27,7 @@ int main(void)
 			fseek(alunos, +1, SEEK_CUR);
 			fscanf(alunos, "%f,%f,%f\n", &nota1, &nota2, &nota3);
 			media_obtida = ( (nota1*peso1) + (nota2*peso2) + (nota3*peso3) ) / 8.0;
-			if(media_obtida >= 6.0) {
+			if(media_obtida >= media_aprovacao) {
 				status = "Aprovado";
 			} else {
 				status = "Reprovado";
