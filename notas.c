@@ -1,11 +1,18 @@
 #include <stdio.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
-	char url_alunos[]="alunos.txt", url_avaliacao[]="avaliacao.txt", nome[10], sobrenome[10], *status;
+	char *url_alunos, *url_avaliacao, nome[10], sobrenome[10], *status;
 	int n_alunos, n_notas;
 	float nota1, nota2, nota3, peso1, peso2, peso3, media_aprovacao, media_obtida;
 	FILE *alunos, *avaliacao;
+
+	url_alunos=argv[1];
+	url_avaliacao=argv[2];
+
+	printf("Nome do arquivo com os alunos: %s\n", url_alunos);
+	printf("Nome do arquivo com as avaliações: %s\n", url_avaliacao);
+	printf("--------------------------------------\n");
 
 	alunos = fopen(url_alunos, "r");
 	avaliacao = fopen(url_avaliacao, "w");
@@ -43,4 +50,5 @@ int main(void)
 		fclose(alunos);
 		fclose(avaliacao);
 	}
+	return 0;
 }

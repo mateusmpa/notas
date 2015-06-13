@@ -1,11 +1,14 @@
 #include <stdio.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
-	char url_alunos[]="alunos.txt", url_avaliacao[]="avaliacao.txt", nome[10], sobrenome[10], *status;
+	char *url_alunos, *url_avaliacao, nome[10], sobrenome[10], *status;
 	int n_alunos, n_notas;
 	float nota1, nota2, nota3, peso1, peso2, peso3, media_aprovacao, media_obtida;
 	FILE *alunos, *avaliacao;
+
+	url_alunos=argv[1];
+	url_avaliacao=argv[2];
 
 	alunos = fopen(url_alunos, "r");
 	avaliacao = fopen(url_avaliacao, "w");
@@ -27,7 +30,7 @@ int main(void)
 			fseek(alunos, +1, SEEK_CUR);
 			fscanf(alunos, "%f,%f,%f\n", &nota1, &nota2, &nota3);
 			media_obtida = ( (nota1*peso1) + (nota2*peso2) + (nota3*peso3) ) / 8.0;
-			if(media_obtida >= 6.0) {
+			if(media_obtida >= media_aprovacao) {
 				status = "Aprovado";
 			} else {
 				status = "Reprovado";
@@ -43,4 +46,5 @@ int main(void)
 		fclose(alunos);
 		fclose(avaliacao);
 	}
+	return 0;
 }
