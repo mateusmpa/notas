@@ -1,2 +1,2 @@
-Jose Silva,5.38
-Marina Cintra,7.75
+Jose Silva,5.4,Reprovado
+Marina Cintra,7.8,Aprovado
