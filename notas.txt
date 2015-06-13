@@ -1,0 +1,4 @@
+Maria 8 8 10
+Jose 6 6 8
+Carlos 7 9.5 7.5
+Programador 10 10 10
