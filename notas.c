@@ -22,9 +22,13 @@ int main(void)
 		fscanf(alunos,"%f\n", &media_aprovacao);
 		printf("Média de aprovação: %f\n", media_aprovacao);
 		printf("--------------------------------------\n");
-		while( (fscanf(alunos,"%s %s,%f,%f,%f\n", nome, sobrenome, &nota1, &nota2, &nota3)) != EOF ) {
+		while(!feof(alunos)) { 
+			fscanf(alunos,"%s %[^,]", nome, sobrenome);
+			fseek(alunos, +1, SEEK_CUR);
+			fscanf(alunos, "%f,%f,%f\n", &nota1, &nota2, &nota3);
 			media_obtida = ( (nota1*peso1) + (nota2*peso2) + (nota3*peso3) ) / 8.0;
-			printf("Nome: %s %s\n", nome, sobrenome);
+			printf("Nome: %s\n", nome);
+			printf("Sobrenome: %s\n", sobrenome);
 			printf("Notas: %f %f %f\n", nota1, nota2, nota3);
 			printf("Média: %f\n", media_obtida);
 			printf("--------------------------------------\n");	
